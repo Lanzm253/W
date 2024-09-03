@@ -1,3 +1,23 @@
+<style>
+    #image-container {
+        max-width: 300px;
+        margin: auto;
+        position: relative;
+        text-align: center;
+    }
+    #image-container img {
+        width: 100%;
+        height: auto;
+        display: none;
+        position: absolute;
+        cursor: pointer;
+    }
+    #image-container img.active {
+        display: block;
+        position: relative;
+    }
+</style>
+
 <div id="image-container">
     <img src="https://cdn.imgchest.com/files/g4z9cblg2e7.webp" alt="Spider gun" data-link="https://s.lazada.com.ph/s.Ph8Bz?cc" />
     <img src="https://cdn.imgchest.com/files/e4gdckagb24.webp" alt="Minecraft Happy birthday" data-link="https://s.lazada.com.ph/s.PhjaL?cc" />
@@ -10,7 +30,7 @@
 
 <script>
     const images = document.querySelectorAll('#image-container img');
-    let currentIndex = 0;
+    let currentIndex = Math.floor(Math.random() * images.length);
 
     function rotateImage() {
         images[currentIndex].classList.remove('active');
@@ -23,6 +43,5 @@
     });
 
     images[currentIndex].classList.add('active');
-
-    setInterval(rotateImage, 5000); 
+    setInterval(rotateImage, 5000);
 </script>
